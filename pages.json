@@ -1,0 +1,23 @@
+{
+  "pages": [
+    {
+      "path": "pages/index/index",
+      "style": {
+        "navigationBarTitleText": "抖音视频去水印",
+        "navigationStyle": "custom"
+      },
+      "app-plus": {
+        "titleNView": false // 禁用原生导航栏
+      }
+    }
+    // 如果还有其他页面，可以继续添加在这里
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "#000",
+    "navigationBarTitleText": "抖音视频去水印",
+    "navigationBarBackgroundColor": "white",
+    "backgroundColor": "#000"
+  },
+  // 如果没有使用 uniId，可以删除下面这一行
+  "uniIdRouter": {}
+}
