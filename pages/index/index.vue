@@ -81,30 +81,32 @@ export default {
 <style>  
 .container {  
   padding: 20px;  
-  background-color: #00947e;  
+  background-image: url(https://t.alcy.cc/mp/);
+  background-repeat: no-repeat;
+  background-size: cover;
   height: 100vh;  
-  color: #fff;  
+  color: #ff007b;  
   display: flex;  
   flex-direction: column;  
 }  
 textarea {  
-  color: #fff;  
+  color: #ff007b;  
   margin-bottom: 20px;  
   padding: 5%;  
-  background-color: #00947e;  
+  background-color: #ffffff66;  
   width: 90%;  
   border: 1px solid #ffffff;  
 }  
 button {  
   margin-bottom: 10px;  
   border: 1px solid #ffffff;  
-  color: #fff;  
-  background-color: #00947e;
+  color: #ff007b;  
+  background-color: #ffffffcc;
   width: 100%;
 }  
 .copySuccess {  
   margin-top: 10px;  
-  color: #fff;  
+  color: #ff007b;  
 }  
 .clsText {  
   width: 80px;  
@@ -120,12 +122,13 @@ uni-textarea {
 	width: 90% !important;
 }
 .uni-textarea-placeholder {  
-  color: #d8d8cc !important;  
+  color: #f123c1 !important;  
 }  
 .appTitle {
 	margin-top: 1em;
 	font-size: 1.2em;
 	text-align: center;
 	margin-bottom: 1em;
+	font-weight: 600;
 }
 </style>

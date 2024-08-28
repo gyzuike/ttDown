@@ -1,9 +1,9 @@
 {
-    "name" : "抖音视频下载",
+    "name" : "鸡掰神器",
     "appid" : "__UNI__EF83FFA",
     "description" : "",
-    "versionName" : "1.0.0",
-    "versionCode" : 105,
+    "versionName" : "1.0.1",
+    "versionCode" : 106,
     "transformPx" : false,
     /* 5+App特有相关 */
     "app-plus" : {
