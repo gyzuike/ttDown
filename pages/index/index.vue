@@ -1,6 +1,9 @@
 <template>  
   <view class="container">  
-	<text class="appTitle">👉 鸡掰神器 👈</text>
+    <view class="titleback">      
+      <text class="appBack" @click="goBack"><<</text>     
+      <view class="appTitle">👉 抖音鸡掰神器 👈</view>
+    </view>
     <textarea v-model="inputText" placeholder="请输入抖音分享链接"></textarea>  
     <button @click="clearData" class="clsText">清空</button>  
     <button @click="parseLink">解析链接</button>  
@@ -11,7 +14,7 @@
     <text v-if="isLoading" class="apiloading">加载中...</text>  
   </view>  
 </template>  
-  
+
 <script>  
 export default {  
   data() {  
@@ -19,10 +22,15 @@ export default {
       inputText: '',  
       parsedData: null,  
       isLoading: false,  
-      isCopied: false  // 新增变量来控制复制成功的提示  
+      isCopied: false  
     };  
   },  
   methods: {  
+    goBack() {
+      uni.navigateBack({
+        delta: 1 // 返回的页面数，如果 delta 大于现有页面数，则返回到首页
+      });
+    },
     parseLink() {  
       this.isLoading = true;  
       let link = this.inputText.match(/https?:\/\/[^\s]+/)?.[0];  
@@ -34,7 +42,7 @@ export default {
       }  
     },  
     fetchVideoData(url) {  
-      const fullUrl = `https://api.shuyuzi.com/?url=${encodeURIComponent(url)}`;  
+      const fullUrl = `https://api.shuyuzi.com/?url=${encodeURIComponent(url)}`;    
       uni.request({  
         url: fullUrl,  
         success: (res) => {  
@@ -56,8 +64,7 @@ export default {
         uni.setClipboardData({  
           data: this.parsedData.url,  
           success: () => {  
-            this.isCopied = true;  // 修改这个变量来显示复制成功的提示  
-            // 这里可以设置一个定时器来自动隐藏提示，例如3秒后  
+            this.isCopied = true;  
             setTimeout(() => {  
               this.isCopied = false;  
             }, 5000);  
@@ -72,16 +79,16 @@ export default {
       this.inputText = '';  
       this.parsedData = null;  
       this.isLoading = false;  
-      this.isCopied = false;  // 清空时也隐藏复制成功的提示  
+      this.isCopied = false;  
     }  
   }  
 };  
 </script>  
-  
+
 <style>  
 .container {  
   padding: 20px;  
-  background-image: url(https://t.alcy.cc/mp/);
+  background-image: url(https://t.alcy.cc/mp/);  
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;  
@@ -119,16 +126,26 @@ button {
   margin-top: 20px;  
 }  
 uni-textarea {
-	width: 90% !important;
+  width: 90% !important;
 }
 .uni-textarea-placeholder {  
   color: #f123c1 !important;  
 }  
+.titleback {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+.appBack {
+  margin-right: 10px; /* 调整返回图标的间距 */
+  font-size: 24px; /* 调整图标大小 */
+  color: #ff007b; /* 调整图标颜色 */
+  cursor: pointer; /* 添加指针样式 */
+}
 .appTitle {
-	margin-top: 1em;
-	font-size: 1.2em;
-	text-align: center;
-	margin-bottom: 1em;
-	font-weight: 600;
+  flex-grow: 1; /* 使标题占据剩余空间 */
+  text-align: center; /* 文字居中 */
+  font-size: 1.2em;
+  font-weight: 600;
 }
 </style>
